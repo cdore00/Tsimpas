@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -35,7 +36,6 @@ display:none;
 
 var metsCollection = null;
 var menuCollection = null;
-var cartCnt = 0;
 var progressBar;
 var commandeEnvoye = false;
 var updtInfo = null;
@@ -241,8 +241,7 @@ var objImgMaxWidth
 function ajouterPanier(jour, descMets, prixMets, Oli, id){
 var cart_count = document.getElementById('cart-count');
 cartContent.addChoice(jour, atob(descMets), prixMets, id);
-cartCnt++;
-cart_count.innerHTML = cartCnt;
+cart_count.innerHTML = cartContent.total();
 // Pour d�clencher animation
 Oli.childNodes[0].classList.remove("zoomOutUp");
 void Oli.childNodes[0].offsetWidth;
@@ -252,18 +251,26 @@ Oli.childNodes[0].classList.add("zoomOutUp");
 var cartContent = {
     // setup properties of cartContent object
     id:"cartContent",
-    listeChoix : new Array()
+    listeChoix : [],
+	init : function(){ this.listeChoix = [];},
+	count : function(){ return this.listeChoix.length;},
+	total : function(){
+			var tot = 0
+			for(var i = 0; i < this.listeChoix.length; i++){
+				tot += this.listeChoix[i].prix;}
+			return tot + "$";},
+	addChoice : function (jour, desc, prix, id) {
+				this.listeChoix[this.listeChoix.length] = new this.addMets(jour, desc, prix, id);
+				},
+	addMets : function (jour, desc, prix, id){
+				this.jour=jour;
+				this.desc=desc;
+				this.prix=eval(prix);
+				this.id=id;
+				this.deleted=false;
+				}
 }
-cartContent.addChoice = function (jour, desc, prix, id) {
-	this.listeChoix[this.listeChoix.length] = new addMets(jour, desc, prix, id);
-}
-function addMets(jour, desc, prix, id){
-this.jour=jour;
-this.desc=desc;
-this.prix=prix;
-this.id=id;
-this.deleted=false;
-}
+
 // End Define cartContent Object
 function showCart(){
 var divCart = document.getElementById('divCart');
@@ -320,11 +327,11 @@ for(var i = 0; i < jour3.childNodes.length; i++){
 formattedBody = formattedBody + "\n" + liv1.innerHTML + "\n";
 var ulElem = document.createElement("ul");
 for(var i = 0; i < cartContent.listeChoix.length; i++){
-	if (!cartContent.listeChoix[i].deleted && cartContent.listeChoix[i].jour == 1 ){
+	if (cartContent.listeChoix[i].jour == 1 ){
 		var liElem = document.createElement("li");
 		var strMets = cartContent.listeChoix[i].desc + ", " + cartContent.listeChoix[i].prix + "$";
 		//desc + ", " + prix + "$"; getMets(cartContent.listeChoix[i].desc);
-		liElem.innerHTML = strMets + '&#8239;<img class="deleteCart" src="misc/delete.png" title="Retirer du panier" alt="' + i + '" onclick="deleteItem(this);"/>';
+		liElem.innerHTML = strMets + '&#8239;<img class="deleteCart" src="misc/delete.png" title="Retirer du panier" onclick="deleteItem(' + i + ');"/>';
 		ulElem.appendChild(liElem);
 		formattedBody = formattedBody + "- " + strMets + "\n";
 	}
@@ -333,10 +340,10 @@ for(var i = 0; i < cartContent.listeChoix.length; i++){
 formattedBody = formattedBody + "\n" + liv3.innerHTML + "\n";
 var ulElem = document.createElement("ul");
 for(var i = 0; i < cartContent.listeChoix.length; i++){
-	if (!cartContent.listeChoix[i].deleted && cartContent.listeChoix[i].jour == 3 ){
+	if ( cartContent.listeChoix[i].jour == 3 ){
 		var liElem = document.createElement("li");
 		var strMets = cartContent.listeChoix[i].desc + ", " + cartContent.listeChoix[i].prix + "$";
-		liElem.innerHTML = strMets + '&#8239;<img src="misc/delete.png" title="Retirer du panier" alt="' + i + '" onclick="deleteItem(this);"/>';
+		liElem.innerHTML = strMets + '&#8239;<img src="misc/delete.png" title="Retirer du panier" onclick="deleteItem(' + i + ');"/>';
 		ulElem.appendChild(liElem);
 		formattedBody = formattedBody + "- " + strMets + "\n";
 	}
@@ -379,9 +386,8 @@ if (returnInfo){
 }
 function deleteItem(aObj){
 var cart_count = document.getElementById('cart-count');
-cartCnt = cartCnt - 1;
-cart_count.innerHTML = cartCnt;
-cartContent.listeChoix[aObj.alt].deleted = true;
+cartContent.listeChoix.splice(aObj, 1);
+cart_count.innerHTML = cartContent.total();
 refreshCart();
 }
 function subCommForm(deleteCommand){
@@ -432,24 +438,21 @@ if (checkInfo()){
 	progressBar.value = .05;
 	divProgress.style.visibility="visible";
 	subProgress();
+	if (deleteCommand)
+		cart = [];
 	for (var i = 0; i < cart.length; i++){
-			if (deleteCommand)
-				cart[i].deleted = true;
-			if (!cart[i].deleted){
-				strCom += "&J" + cart[i].jour + "" + cart[i].id + "=" + encodeURIComponent(cart[i].desc);
-				if (cart[i].jour == 1){
-					mailInfoJ1 += "$" + cart[i].jour + "*" + cart[i].id;
-				}
-				if (cart[i].jour == 3){
-					mailInfoJ3 += "$" + cart[i].jour + "*" + cart[i].id;
-				}
-			}
+		strCom += "&J" + cart[i].jour + "" + cart[i].id + "=" + encodeURIComponent(cart[i].desc);
+		if (cart[i].jour == 1){
+			mailInfoJ1 += "$" + cart[i].jour + "*" + cart[i].id;
 		}
+		if (cart[i].jour == 3){
+			mailInfoJ3 += "$" + cart[i].jour + "*" + cart[i].id;
+		}
+	}
 	if (deleteCommand){
 		var cart_count = document.getElementById('cart-count');
 		refreshCart();
-		cartCnt = 0;
-		cart_count.innerHTML = cartCnt;
+		cart_count.innerHTML = 0;
 		}
 	if (updtInfo)
 		rangeInfo = "&range=" + updtInfo;
@@ -573,7 +576,7 @@ if (typeof HTMLDialogElement !== 'function') {
 		dialogBox.style.visibility="hidden";
 	} 
 
-initPage();
+//initPage();
 menuList.addEventListener("animationend", updateAnimation, true);
 loadMetsXML();
 //alert(performance.navigation.type);
@@ -622,7 +625,7 @@ var f_nom = document.getElementById('f_nom');
 var f_adresse = document.getElementById('f_adresse');
 var f_courriel = document.getElementById('f_courriel');
 //Le cart est vide
-if ( cartCnt == 0 ){
+if ( cartContent.count() == 0 ){
 	if (typeof HTMLDialogElement === 'function') {
 			var divMessage = document.getElementById('divMessage');
 			divMessage.innerHTML = "<p>Votre panier est vide.</p><p> Ajoutez des items avec le bouton «Ajouter».</p></br>";
@@ -675,7 +678,7 @@ return true;
 
 <div id="entete">
 
-<h1>Traiteur Simpas</h1>
+<h1> Simpas</h1>
 <div id="louIcon"><img id="loupopoteIcon" alt="Icone Traiteur Simpas" src="misc/favicon.gif" /></div>
 <button type="button" id="rightnav" title="Taille de police" onclick="changeTaille();"><img id="imgTaille" alt="Taille de police" height="20" width="45" src="misc/taille.png" /></button>
 </div>
@@ -686,10 +689,19 @@ return true;
 	<a href="index.html">Accueil</a>
 	</li>
 	<li>
-	<a id="ancPhoto" class="selOpt" href="#">Menu</a>   
+	<a id="ancPhoto" class="selOpt" href="#">Repas préparés</a>   
 	</li>
 	<li>
 	<a href="photos.html">Photos</a>
+	</li>
+	<li>
+	<a href="joindre.html">Traiteur</a>
+	</li>
+	<li>
+	<a href="joindre.html">Certificat-cadeau</a>
+	</li>
+	<li>
+	<a href="a_propos.html">À propos</a>
 	</li>
 	<li>
 	<a href="joindre.html">Nous joindre</a>
@@ -706,7 +718,6 @@ return true;
 <span class="titreMenu">Les livraisons sont effectu&eacute;es en fin d'apr&egrave;s-midi. Faites votre choix avant dimanche 11h &agrave; <a href="mailto:lou@loupopote.com?Subject=Site&nbsp;Lou&nbsp;popote">lou@loupopote.com</a>! Miam!</span>
 
 <div>
-<input id="inputObj" type="hidden" value='<%= comInfo %>'/>
 <div id="menu-cart" class="tooltip" onclick="showCart()">
 <span id="cart-count">0</span>
 <span class="tooltiptext">Afficher le panier</span>
