@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="minimum-scale=1.0, width=device-width, user-scalable=yes" />
+
+<link rel="stylesheet" type="text/css" href="misc/takePhoto.css" />
+
+<script type="text/javascript" src="misc/takePhoto.js"></script>
+
+<script type="text/javascript"> 
+<!--
+	
+// -->
+</script> 
+		
+</head>
+<body>
+<input id="infoTXT" size="100" type="text">
+<img id="imgObj" src="#" /> <!--Required - Show resulted image from capture object // --> 
+
+<button id="startbutton" onclick="initCamImgCapture()">Photo</button>
+
+
+<!--Photo capture object elements // -->
+<div id="objModal">
+<canvas id="canvas2" ></canvas>
+</div>
+
+<div id="objClip">
+
+<div id="divVideo" >
+<video id="video"></video>
+<div id="resPhoto" ondrop="CIdrop(event)" ondragover="CIallowDrop(event)"><canvas id="canvas" ></canvas>
+<div id="trimDiv" draggable="true" ondragstart="CIdrag(event)"></div>
+<div id="redim" draggable="true" ondragstart="CIdrag(event)"></div>
+</div>
+<div id="tipDiv"><span id="tipTxt" title="Cliquer pour photo">Cliquer pour photo</span>
+<div id="toolDiv"><div id="trimImg" onclick="showTrimTool()"></div><div id="rotateImg" onclick="rotateImg();"></div></div>
+</div>
+</div>
+
+<div id="buttonZone">
+<div class="butContent"><button id="butRetry" onclick="retryCapture()">Reprendre</button></div>
+<div class="butContent"><button id="butCallFile" onclick="butFile.click()">Photo</button></div>
+<div class="butContent"><button id="butOk">Ok</button></div>
+<div class="butContent"><button id="butCancel">Annuler</button></div>
+<div class="butContent"><button id="butTest" onclick="test()">Test</button></div>
+<input id="butFile" type="file" accept="image/*;capture=camera" />
+</div>
+</div>
+	
+
+ </body>	 
+</html>
