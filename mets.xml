@@ -1,45 +1,45 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<plat1>
-		<file>pizza.jpg</file>
-		<desc>Pizza: Choix de 3 viandes, poulet et pesto ou chèvre et pignon de pin</desc>
-		<prix>7</prix>
+		<file>Croquet_truite.jpg</file>
+		<desc>Croquette de truite, crème sûre au citron et salade de quinoa</desc>
+		<prix>9.00</prix>
 		<puplie>O</puplie>
 	</plat1>
 	<plat2>
-		<file>couscous.jpg</file>
-		<desc>Couscous aux saucisses italiennes</desc>
-		<prix>10</prix>
+		<file>Salade_legum_saumon.jpg</file>
+		<desc>Salade de légumineuses au saumon fumé et à l'aneth frais</desc>
+		<prix>7.00</prix>
 		<puplie>O</puplie>
 	</plat2>
 	<plat3>
-		<file>Croquettes.jpg</file>
-		<desc>Croquettes millet et lentilles avec poêlée de légumes</desc>
-		<prix>10</prix>
+		<file>Simpas.jpg</file>
+		<desc>Couscous aux saucisses merguez et oignons caramélisés</desc>
+		<prix>7.50</prix>
 		<puplie>O</puplie>
 	</plat3>
 	<plat4>
-		<file>tartelettes.jpg</file>
-		<desc>Tartelettes au sucre surmontées d'une ganache au chocolat</desc>
-		<prix>7</prix>
+		<file>Poulet_teriyaki.jpg</file>
+		<desc>Poulet teriyaki et nouilles de riz à la thaï</desc>
+		<prix>8.00</prix>
 		<puplie>O</puplie>
 	</plat4>
 	<plat5>
-		<file>boeuf.jpg</file>
-		<desc>Boeuf à l'orange</desc>
-		<prix>10</prix>
+		<file>Ragout_pois_chiches.jpg</file>
+		<desc>Ragoût de pois chiches au curry, moules et morue</desc>
+		<prix>8.50</prix>
 		<puplie>O</puplie>
 	</plat5>
 	<plat6>
-		<file>filet_morue.jpg</file>
-		<desc>Filet de morue sauce tartare et patates au four</desc>
-		<prix>10</prix>
+		<file>Grill_cheese_crevettes.jpg</file>
+		<desc>Grilled cheese de crevettes et avocat</desc>
+		<prix>9.00</prix>
 		<puplie>O</puplie>
 	</plat6>
 	<plat7>
 		<file>Boulettes suedoises.jpg</file>
 		<desc>Boulettes suédoises, purée de pomme de terre et confitures de canneberges</desc>
-		<prix>10</prix>
+		<prix>10.00</prix>
 		<puplie>O</puplie>
 	</plat7>
 	<plat8>
