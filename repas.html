@@ -26,7 +26,7 @@
 
 function hideShowSom(arrowDiv, objQR){
 
-if (objQR.offsetHeight > 70){
+if (objQR.offsetHeight > objQR.childNodes[1].offsetHeight + 5){
 	objQR.style.height = "2.5em";
 	arrowDiv.innerHTML = "&#9660;";
 }else{
