@@ -23,13 +23,52 @@
 <script type="text/javascript" src="misc/util.js"></script>
 <script type="text/javascript"> 
 <!--
+
+function hideShowSom(arrowDiv, objQR){
+
+if (objQR.offsetHeight > 70){
+	objQR.style.height = "50px";
+	arrowDiv.innerHTML = "&#9660;";
+}else{
+	objQR.style.height= objQR.childNodes[3].offsetHeight + 80 + "px";
+	arrowDiv.innerHTML = "&#9650;";
+}
+}
+
 // -->
 </script> 
 
 <style>
+.objQR {
+ width: 95%;
+height: 50px;
+border-bottom: 1px solid #aaa;
+text-align: left;
+overflow: hidden;
+-webkit-transition: all 0.6s ease-in-out;
+-moz-transition: all 0.6s ease-in-out;
+transition: all 0.6s ease-in-out;
+margin-top: 15px;
+}
 
+.hideSom{
+cursor: pointer;
+color: white;
+float: right;
+}
 
+.questRep{
+position: relative;
+}
+
+.quest{
+display: contents;
+float: left;
+font-weight: bold;
+font-size: 1.1em
+}
 </style>
+
 
 </head>
 
@@ -56,7 +95,7 @@
 	<a href="joindre.html">Certificat-cadeau</a>
 	</li>
 	<li>
-	<a href="a_propos.html">À propos</a>
+	<a href="a_propos.html">&Agrave; propos</a>
 	</li>
 	<li>
 	<a href="joindre.html">Nous joindre</a>
@@ -72,7 +111,6 @@
 <h4><a href="menu.html">Menu de la semaine</a></h4>
 <h4><a href="photos.html">Nos mets</a></h4>
 <h4><a href="#foireQ">Foire aux questions</a></h4>
-
 
 <div class="alignLeft">
 <p>&nbsp;</p>
@@ -94,18 +132,153 @@
 <a name="foireQ"></a>
 <h4>Foire aux questions</h4>
 <hr>
-<p>
-Fond&eacute;e en 2015, Simpas est une petite entreprise familiale situ&eacute;e &agrave;  L&eacute;vis, sur la rive-sud de Qu&eacute;bec. 
-</p> 
-<div><img id="imgAccueil" src="https://static.wixstatic.com/media/160302bd324b4187b67b7f265c3b8f24.jpg" alt="Image famille"/>
-<p>
-Chez nous, chaque souvenir heureux est reli&eacute; &agrave; une soir&eacute;e autour d'un bon repas, avec des gens estim&eacute;s. Se nourrir est bien s&ucirc;r un besoin essentiel, mais c'est aussi une occasion de se rassembler avec des &ecirc;tres qui nous sont chers. Et c'est exactement l'esprit derri&egrave;re notre entreprise.
-</p> 
-<p>
-Chez Simpas, nous cuisinons chaque jour pour vous avec autant d'efforts et de soins que lorsque nous cuisinons pour les membres de notre famille. Nous sommes une petite &eacute;quipe jeune et dynamique et c'est avec plaisir que nous pr&eacute;parons nous-m&ecirc;mes vos repas &agrave; L&eacute;vis.
-</p>
-<p>&nbsp;</p>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Puis-je avoir plus de d&eacute;tails sur le fonctionnement pour les repas pr&eacute;par&eacute;s?
 </div>
+</div>
+<div class="rep">
+<p>Tous nos repas pr&eacute;par&eacute;s sont livr&eacute;s emball&eacute;s sous vide et num&eacute;rot&eacute;s (Repas 1, Repas 2, Repas 3, ...) afin de faciliter le rep&eacute;rage de chaque plat et son accompagnement (s'il y a lieu). Aussi, le nombre de sacs est inscrit sur l'&eacute;tiquette de chaque repas (Sac 1 de 1 ou Sac 1 de 2).</p>
+<p>Vos repas sont d&eacute;j&agrave; tout pr&ecirc;ts. Il n'y a aucune cuisine n&eacute;cessaire, vous n'avez qu'&agrave; r&eacute;chauffer!</p>
+<p>Vous trouverez aussi les logos de cong&eacute;lation et de micro-ondes sur les &eacute;tiquettes lorsqu'applicables.</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Est-ce possible de savoir &agrave; quelle heure la livraison aura lieu?
+</div>
+</div>
+<div class="rep">
+<p>Les livraisons ont lieu le dimanche entre 14h et 20h. Si vous avez une pr&eacute;f&eacute;rence pour l'heure de livraison, veuillez s'il-vous-plaît l'inscrire dans la remarque au moment de finaliser votre panier d'achat.</p>
+<p>Cependant, prendre note que nous ne garantissons pas l'heure de livraison, puisqu'elle varie en fonction du nombre de commandes, de l'emplacement des clients, de la temp&eacute;rature, etc.</p>
+<p>Si vous deviez vous absentez durant la plage de livraison, nous conseillons de placer une glaci&egrave;re pr&egrave;s de la porte afin que le livreur puisse y d&eacute;poser votre commande.</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Que faire si je ne suis pas disponible durant la plage de livraison?
+</div>
+</div>
+<div class="rep">
+<p>Les livraisons des commandes ont lieu les dimanches, de 14h &agrave; 20h. Si vous ne pouvez &ecirc;tre pr&eacute;sents lors de la livraison, vous n'avez qu'&agrave; laisser une glaci&egrave;re pr&egrave;s de la porte afin que notre livreur puisse y d&eacute;poser votre commande. S'il est impossible pour vous de laisser une glaci&egrave;re, communiquez avec nous afin de voir si nous pouvons livrer votre commande &agrave; un autre moment.</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Comment faire pour commander vos repas pr&eacute;par&eacute;s?
+</div>
+</div>
+<div class="rep">
+<p>Il y a plusieurs fa&ccedil;ons de commander nos repas pr&eacute;par&eacute;s :</p>
+<ul>
+<li>en ligne</li>
+<li>par courriel &agrave; l'adresse suivante : traiteur.simpas@gmail.com</li>
+<li>en nous envoyant une message priv&eacute; sur notre page facebook: https://www.facebook.com/traiteursimpas/</li>
+<li>en nous appelant au 581-998-4992.</li>
+</ul>
+<p>Au plaisir :)</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Est-ce que vos repas sont frais ou congel&eacute;s?
+</div>
+</div>
+<div class="rep">
+<p>Tous nos repas sont frais et emball&eacute;s sous vide pour un maximum de fraicheur.</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Quels sont les modes de paiement accept&eacute;s?
+</div>
+</div>
+<div class="rep">
+<p>Vous pouvez payer en argent comptant ou par virement Interac au moment de la livraison ou par carte de cr&eacute;dit au moment de votre commande en ligne.</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Est-ce que vos repas pr&eacute;par&eacute;s se cong&egrave;lent?
+</div>
+</div>
+<div class="rep">
+<p>Nos repas pr&eacute;par&eacute;s sont livr&eacute;s frais et vous pouvez congeler la plupart de nos repas au besoin. Surveillez l'icône de cong&eacute;lation sur les &eacute;tiquettes de vos repas pr&eacute;par&eacute;s qui vous indiquera les repas qui conserveront bien leur goût et leur texture m&ecirc;me apr&egrave;s avoir &eacute;t&eacute; congel&eacute;s:</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Que faire en cas d'allergies alimentaires?
+</div>
+</div>
+<div class="rep">
+<p>Si vous souffrez d'allergies alimentaires, s'il-vous-plaît nous indiquer &agrave; quels aliments vous &ecirc;tes allergique au moment de votre commande.</p>
+<p>Quoique nous mettons toujours tous les efforts n&eacute;cessaires pour minimiser les risques en cas d'allergie, il est important de mentionner que nous ne pouvons pas garantir qu'il n'y a aucun contact avec les allerg&egrave;nes ou que nos ingr&eacute;dients achet&eacute;s ne contiennent pas certaines traces de ces allerg&egrave;nes.</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Est-ce que vous ajouter des agents de conservation ou des rehausseurs de goût &agrave; vos plats?
+</div>
+</div>
+<div class="rep">
+<p>Nous mettons un peu de sel, poivre et &eacute;pices pour le goût, mais nous n'ajoutons AUCUN agent de conservation ni AUCUN rehausseur de goût &agrave; nos repas, tout comme des repas faits &agrave; la maison. Nous choisissons plutôt d'emballer nos repas sous vide afin de conserver leur fraîcheur.</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Que faire si nous voulons commander vos repas, mais nous n'habitons pas Qu&eacute;bec ni L&eacute;vis?
+</div>
+</div>
+<div class="rep">
+<p>Une alternative que nous offrons &agrave; nos clients est de livrer sur leur lieu de travail le lundi, s'il est situ&eacute; &agrave; Qu&eacute;bec ou L&eacute;vis. Dans ce cas, s'il-vous-plaît communiquer avec nous pour v&eacute;rifier les heures de livraison possibles.</p>
+<p>Une autre option est de fixer ensemble un point de rencontre aux limites de Qu&eacute;bec ou L&eacute;vis pour effectuer la livraison le dimanche.</p>
+</div>
+</div>
+
+<div class="objQR">
+<div class="questRep">
+<div class="hideSom" onclick="hideShowSom(this, this.parentNode .parentNode)">&#9660;</div>
+<div class="quest">
+Devons-nous prendre un abonnement pour commander vos plats pr&eacute;par&eacute;s?
+</div>
+</div>
+<div class="rep">
+<p>Absolument pas! Chez Simpas, vous commandez vos mets cuisin&eacute;s seulement pour les semaines où vous en avez envie. Vous avez la libert&eacute; de commander nos plats chaque semaine ou une fois de temps en temps, selon vos besoins.</p>
+</div>
+</div>
+
+</div> 
 
 </div>  <!--End content // -->
 
