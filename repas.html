@@ -27,10 +27,10 @@
 function hideShowSom(arrowDiv, objQR){
 
 if (objQR.offsetHeight > 70){
-	objQR.style.height = "50px";
+	objQR.style.height = "2.5em";
 	arrowDiv.innerHTML = "&#9660;";
 }else{
-	objQR.style.height= objQR.childNodes[3].offsetHeight + 80 + "px";
+	objQR.style.height= objQR.childNodes[3].offsetHeight + objQR.childNodes[1].offsetHeight + "px";
 	arrowDiv.innerHTML = "&#9650;";
 }
 }
@@ -40,8 +40,7 @@ if (objQR.offsetHeight > 70){
 
 <style>
 .objQR {
- width: 95%;
-height: 50px;
+height: 2.5em;
 border-bottom: 1px solid #aaa;
 text-align: left;
 overflow: hidden;
@@ -49,6 +48,7 @@ overflow: hidden;
 -moz-transition: all 0.6s ease-in-out;
 transition: all 0.6s ease-in-out;
 margin-top: 15px;
+margin-left: 10px;
 }
 
 .hideSom{
@@ -76,8 +76,11 @@ font-size: 1.1em
 
 <div id="entete">
 <a name="hautPage"></a>
+<div id="fontAdjust">
+<div class="divFont" onclick="setFontS(0.2, this)"><div class="divFontSize">A</div><div class="fontLogo">&#8593;</div></div>
+<div class="divFont" onclick="setFontS(-0.2, this)"><div class="divFontSize fontSmall">A</div><div class="fontLogo">&#8595;</div></div>
+</div>
 <h1>Traiteur Simpas</h1>
-<button type="button" id="rightnav" title="Taille de police" onclick="changeTaille();"><img id="imgTaille" alt="Taille de police" height="20" width="45" src="misc/taille.png" /></button>
 </div>
 
 <div id="divmenu">
@@ -128,7 +131,7 @@ font-size: 1.1em
 
 <p>&nbsp;</p>
 
-<div class="alignLeft">
+<div >
 <a name="foireQ"></a>
 <h4>Foire aux questions</h4>
 <hr>

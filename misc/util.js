@@ -20,15 +20,14 @@ windowOref = window.open("https://accounts.google.com/o/oauth2/auth?access_type=
 }
 
 
-
 function scrollRightNav(){
 var topValue;
 if (document.documentElement.scrollTop)
 	topValue = document.documentElement.scrollTop;
 else
 	topValue = document.body.scrollTop;
-//alert(topValue);
-	rightnav.style.top = topValue + 7 + 'px';
+
+	//rightnav.style.top = topValue + 7 + 'px';
 if (!isMobile)
 	divmenu.style.top = topValue + 'px';
 
@@ -68,6 +67,50 @@ if (showPhoto.style.visibility == "visible"){
 //alert(window.orientation);
 }
 
+function setFontS(sizeAD, oIncDec){
+var fs = document.body.style.fontSize;
+var oCtls = document.getElementsByClassName('divFont');
+
+for (i = 0; i < oCtls.length; i++) {
+	oCtls[i].style.color = "#efe";
+}
+if (sizeAD && typeof sizeAD == "number"){
+	fs = eval(fs.replace("em", "")) + sizeAD; 
+	if (sizeAD > 0){
+		if (fs >= 2){
+			fs = 2;
+			if (oIncDec)
+				oIncDec.style.color = "#555";
+		}
+	}
+	if (sizeAD < 0){
+		if (fs <= 0.8){
+			fs = 0.8;
+			if (oIncDec)
+				oIncDec.style.color = "#555";
+		}
+	}
+	document.body.style.fontSize = fs + "em";
+	SetCook( "_fontSize", fs + "em");
+}else{
+	if (!sizeAD){
+		//setLanguage();
+		fs = GetCookie( "_fontSize");
+		if (!fs || fs == ""){
+			fs = document.body.style.fontSize;
+			if (fs == "")
+				fs = "1em";
+		}
+	}else{
+		fs = sizeAD;
+	}
+	document.body.style.fontSize = fs;
+	var pageZone = document.getElementById('pageZone');
+	if (pageZone)
+		pageZone.style.visibility = "visible";
+}
+}
+
 if (document.images) {
 	img1 = new Image();
 	img2 = new Image();
@@ -80,11 +123,11 @@ if (document.images) {
 
 function initPage(s_nav){
 divmenu = document.getElementById('divmenu');
-rightnav = document.getElementById('rightnav');
-menuCart = document.getElementById('menu-cart');
+rightnav = document.getElementById('fontAdjust');
+//menuCart = document.getElementById('menu-cart');
 
-setFontSize();
-if (s_nav)
+setFontS();
+//if (s_nav)
 	if("matchMedia" in window) { // Détection
 		if(!window.matchMedia("(max-width: 540px)").matches)
 			window.onscroll = scrollRightNav;}
