@@ -96,7 +96,7 @@ if (sizeAD && typeof sizeAD == "number"){
 	if (!sizeAD){
 		//setLanguage();
 		fs = GetCookie( "_fontSize");
-		if (!fs || fs == ""){
+		if (!fs || fs == "" || fs == "NaNem"){
 			fs = document.body.style.fontSize;
 			if (fs == "")
 				fs = "1em";
@@ -109,16 +109,6 @@ if (sizeAD && typeof sizeAD == "number"){
 	if (pageZone)
 		pageZone.style.visibility = "visible";
 }
-}
-
-if (document.images) {
-	img1 = new Image();
-	img2 = new Image();
-	img3 = new Image();
-
-	img1.src = "misc/taille.png";
-	img2.src = "misc/taille2.png";
-	img3.src = "misc/taille3.png";
 }
 
 function initPage(s_nav){
@@ -170,65 +160,6 @@ function SetCook(cname, cvalue){
 	//alert(document.cookie);
 }
 
-function setFontSize(policeSize){
-var pSize;
-
-if (policeSize)
-	pSize = policeSize;
-else
-	pSize = GetCookie("PolSize");
-
-changeTaille(pSize);
-
-}
-
-function changeTaille(polSize){
-var bodyobj = document.getElementsByTagName('body')[0];
-var policeSize;
-
-//alert(bodyobj.style.fontSize + "polSize=" + polSize);
-if (polSize){
-	policeSize = polSize;
-}else{
-	if (bodyobj.style.fontSize=="" || bodyobj.style.fontSize=="0.9em" || bodyobj.style.fontSize=="1em" || bodyobj.style.fontSize=="1.1em"){
-		policeSize="1.3em";}
-	if (bodyobj.style.fontSize=="1.3em"){
-		policeSize="1.7em";}
-	if (bodyobj.style.fontSize=="1.7em"){
-		policeSize = "1em";}
-
-	SetCook("PolSize",policeSize);
-}
-
-bodyobj.style.fontSize = policeSize;
-setImgTaille(policeSize);
-}
-
-function setImgTaille(policeSize){
-var imgT = document.getElementById('imgTaille');
-var srcImg;
-
-if (imgT){
-	switch(policeSize)
-		{
-		case "0.9em" :
-		case "1em" :
-		case "1.1em" :
-		case "1.2em" :
-		  srcImg = img1.src;
-		  break;
-		case "1.3em" :
-		case "1.6em" :
-		  srcImg = img2.src;
-		  break;
-		case "1.7em" :
-		case "2em" :
-		  srcImg = img3.src;
-		  break;
-		}
-	imgT.src = srcImg;
-	}
-}
 
 function adjustScreen(hauteurUtil){
 	var divMap, dispH, pxRatio
