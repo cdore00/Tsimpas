@@ -10,6 +10,8 @@ html { height: 100% }
 @font-face {
     font-family: "Ma-police";
 	src: url('P_Font.ttf');
+	font-family: "haviland";
+	src: url('MrDeHaviland-Regular.ttf');
 }
 
 body{
@@ -267,10 +269,11 @@ max-width: 95% !important;
 
 .cart-button{
 min-width: 100px;
-color: #222;	
-padding: 3px;
+color: #222;
+font-weight:bold;	
+padding-top: 3px;
 background: #ccc !important;
-margin: 10px;
+/*margin: 10px;*/
 display: inline-block;
 box-shadow: 1px 1px 1px #ccccdd, 2px 2px 2px #c9dde9 inset;
    -webkit-box-shadow: 3px 3px 3px rgba(56,129,120,0.5),

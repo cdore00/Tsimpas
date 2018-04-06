@@ -303,8 +303,7 @@ divCart.style.left="0px";
 //divCart.style.opacity=1;
 if (f_nom.value == "")
 	f_nom.focus();
-else
-	document.getElementById("subEmail").focus();
+
 setTimeout("cartTitle.scrollIntoView();", 400);
 //divCart.style.zIndex = 2000;
 	
@@ -312,7 +311,6 @@ setTimeout("cartTitle.scrollIntoView();", 400);
 function refreshCart(){
 var jour1 = document.getElementById('jour1');
 var jour3 = document.getElementById('jour3');
-var subEmail = document.getElementById('subEmail');
 var liv1 = document.getElementById('liv1');
 var liv3 = document.getElementById('liv3');
 var formattedBody = "Bonjour, \n\nVoici ma commande \n";
@@ -352,8 +350,8 @@ for(var i = 0; i < cartContent.listeChoix.length; i++){
 // Formatter le courriel de commande
 formattedBody = formattedBody + "\n" + GetCookie('cartAdresse');
 formattedBody = formattedBody + "\n\nMerci,\n\n" + GetCookie('cartNom');
-subEmail.href = "mailto: lou@loupopote.com?Subject=Commande Traiteur Simpas&body=" + encodeURIComponent(formattedBody);
 }
+
 function closeCart(){
 var menuCart = document.getElementById('menu-cart');
 var divCart = document.getElementById('divCart');
@@ -590,7 +588,6 @@ if (e.animationName == "slidein"){
 //alert(e.animationName);
 }
 function loadCommande(){
-var subDelete = document.getElementById('subDelete');
 var menu1 = document.getElementById('menu1');
 var menu3 = document.getElementById('menu3');
 var url = window.location.href
@@ -617,7 +614,6 @@ for (var i = 3; i < urlParam.length; i++) {
 }
 	updtInfo = decodeURIComponent(urlParam[0]);
 	cartTitle.innerHTML = cartTitle.innerHTML + '<p class="smallF">Soumis: ' + decodeURIComponent(urlParam[2]) + '</p>';
-	subDelete.style.display = "inline-block";
 	showCart();
 }
 function checkInfo(){
@@ -689,10 +685,7 @@ return true;
 	<a href="index.html">Accueil</a>
 	</li>
 	<li>
-	<a id="ancPhoto" class="selOpt" href="#">Repas préparés</a>   
-	</li>
-	<li>
-	<a href="photos.html">Photos</a>
+	<a href="repas.html">Repas pr&eacute;par&eacute;s</a> 
 	</li>
 	<li>
 	<a href="joindre.html">Traiteur</a>
@@ -808,9 +801,6 @@ return true;
 
 <div>
 <a id="subCommand" class="cart-button" title="Soumettre automatiquement" href="javascript:subCommForm();" >&nbsp;Soumettre&nbsp;</a>
-<a id="subEmail" class="cart-button" title="Soumettre par courriel..." href="mailto:louise@loupopote.com">&nbsp;Courriel&nbsp;</a>
-<a id="subDelete" class="cart-button" title="Supprimer la commande" href="javascript:subCommForm(true);" >&nbsp;Supprimer&nbsp;</a>
-<a id="subPhoto" class="cart-button" title="Joindre une photo" href="javascript:initCamImgCapture();" >&nbsp;Photo&nbsp;</a>
 <a class="cart-button" title="Fermer" href="javascript:closeCart();">&nbsp;&nbsp;&nbsp;Fermer&nbsp;&nbsp;&nbsp;</a>
 </div>
 
