@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <menu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<livraisons>
-		<livLundi>Livraison du lundi 23 janvier:</livLundi>
+		<livLundi>Livraison du dimanche 15 avril:</livLundi>
 		<livMardi/>
-		<livMercredi>Livraison du mercredi 25 janvier:</livMercredi>
+		<livMercredi>Frais et rabais</livMercredi>
 		<livJeudi/>
 		<livVendredi/>
 		<livSamedi/>
@@ -68,8 +68,8 @@
 		</mets4>
 		<mets5>
 			<mets/>
-			<desc/>
-			<prix/>
+			<desc>Frais de livraison hors zone 5$</desc>
+			<prix>5.00</prix>
 			<lien/>
 		</mets5>
 	</menu2>
