@@ -27,12 +27,20 @@
 function hideShowSom(objQR){
 var arrowDiv = objQR.childNodes[1].childNodes[1];
 if (objQR.offsetHeight >= objQR.childNodes[1].offsetHeight + objQR.childNodes[3].offsetHeight){
-	objQR.style.height = "2.5em";
+	objQR.style.height = objQR.childNodes[1].offsetHeight + "px";
 	arrowDiv.innerHTML = "&#9660;";
 }else{
 	objQR.style.height= objQR.childNodes[3].offsetHeight + objQR.childNodes[1].offsetHeight + "px";
 	arrowDiv.innerHTML = "&#9650;";
 }
+}
+
+function initQR(){
+var oQRs = document.getElementsByClassName('objQR');
+for (i = 0; i < oQRs.length; i++) {
+	oQRs[i].style.height = oQRs[i].childNodes[1].offsetHeight + "px";
+}
+
 }
 
 // -->
@@ -77,7 +85,7 @@ clear:both;
 
 </head>
 
-<body onload="initPage();">
+<body onload="initPage(initQR);">
 
 <div id="entete">
 <a name="hautPage"></a>

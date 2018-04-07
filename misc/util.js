@@ -111,11 +111,11 @@ if (sizeAD && typeof sizeAD == "number"){
 }
 }
 
-function initPage(s_nav){
+function initPage(callBackFunct){
 divmenu = document.getElementById('divmenu');
 rightnav = document.getElementById('fontAdjust');
 //menuCart = document.getElementById('menu-cart');
-
+//var x = callBackFunct;
 setFontS();
 //if (s_nav)
 	if("matchMedia" in window) { // Détection
@@ -123,6 +123,9 @@ setFontS();
 			window.onscroll = scrollRightNav;}
 	else	
 	window.onscroll = scrollRightNav;
+if (callBackFunct)
+	callBackFunct();
+
 }
 
 function getCookieVal(offset){

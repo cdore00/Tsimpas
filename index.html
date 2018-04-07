@@ -27,7 +27,6 @@
 .accItem{
 display: contents;
 width: 100%;
-text-align: center;
 
 }
 
@@ -38,17 +37,19 @@ border: 1px solid #aaa;
 
 .lDiv{
 float: left;
-
 }
 
 .rDiv{
 float: right;
-
 }
 
 .accImg{
 max-height: 200px;
 max-width: 50%;
+}
+
+.divTxt{
+text-align: center;
 }
 
 </style>
@@ -93,7 +94,7 @@ max-width: 50%;
 <div id="content">
 
 <div id="i1" class="accItem">
-<div id="i1-dl" class="lDiv">
+<div id="i1-dl" class="lDiv divTxt">
 Repas préparés
 </div>
 <div id="i1-dr" class="rDiv">
@@ -105,7 +106,7 @@ Repas préparés
 <div class="lDiv">
 <img class="accImg" src="photos/A_buf.jpg" alt="Repas préparé"/>
 </div>
-<div class="rDiv">
+<div class="rDiv divTxt">
 Buffet
 </div>
 </div>
