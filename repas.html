@@ -24,8 +24,8 @@
 <script type="text/javascript"> 
 <!--
 
-function hideShowSom(arrowDiv, objQR){
-
+function hideShowSom(objQR){
+var arrowDiv = objQR.childNodes[1].childNodes[1];
 if (objQR.offsetHeight > objQR.childNodes[1].offsetHeight + 15){
 	objQR.style.height = "2.5em";
 	arrowDiv.innerHTML = "&#9660;";
@@ -141,8 +141,8 @@ clear:both;
 <h4>Foire aux questions</h4>
 <hr>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Puis-je avoir plus de d&eacute;tails sur le fonctionnement pour les repas pr&eacute;par&eacute;s?</p>
