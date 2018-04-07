@@ -26,7 +26,7 @@
 
 function hideShowSom(objQR){
 var arrowDiv = objQR.childNodes[1].childNodes[1];
-if (objQR.offsetHeight > objQR.childNodes[1].offsetHeight + 15){
+if (objQR.offsetHeight >= objQR.childNodes[1].offsetHeight + objQR.childNodes[3].offsetHeight){
 	objQR.style.height = "2.5em";
 	arrowDiv.innerHTML = "&#9660;";
 }else{
@@ -49,6 +49,7 @@ overflow: hidden;
 transition: all 0.6s ease-in-out;
 margin-top: 15px;
 margin-left: 10px;
+cursor: pointer;
 }
 
 .hideSom{
@@ -59,7 +60,6 @@ float: right;
 
 .questRep{
 position: relative;
-cursor: pointer;
 }
 
 .quest{
@@ -155,8 +155,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Est-ce possible de savoir &agrave; quelle heure la livraison aura lieu?</p>
@@ -169,8 +169,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Que faire si je ne suis pas disponible durant la plage de livraison?</p>
@@ -181,8 +181,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Comment faire pour commander vos repas pr&eacute;par&eacute;s?</p>
@@ -200,8 +200,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Est-ce que vos repas sont frais ou congel&eacute;s?</p>
@@ -212,8 +212,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Quels sont les modes de paiement accept&eacute;s?</p>
@@ -224,8 +224,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Est-ce que vos repas pr&eacute;par&eacute;s se cong&egrave;lent?</p>
@@ -236,8 +236,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Que faire en cas d'allergies alimentaires?</p>
@@ -249,8 +249,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Est-ce que vous ajouter des agents de conservation ou des rehausseurs de goût &agrave; vos plats?</p>
@@ -261,8 +261,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Que faire si nous voulons commander vos repas, mais nous n'habitons pas Qu&eacute;bec ni L&eacute;vis?</p>
@@ -274,8 +274,8 @@ clear:both;
 </div>
 </div>
 
-<div class="objQR">
-<div class="questRep" onclick="hideShowSom(this.parentNode.childNodes[1].childNodes[1], this.parentNode)">
+<div class="objQR" onclick="hideShowSom(this)">
+<div class="questRep">
 <div class="hideSom">&#9660;</div>
 <div class="quest">
 <p>Devons-nous prendre un abonnement pour commander vos plats pr&eacute;par&eacute;s?</p>
