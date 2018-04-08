@@ -564,7 +564,6 @@ function validEmail(email){
 
 function initPageMenu(){
 var dialogBox = document.getElementById('dialogBox');
-//var divframeInfo = document.getElementById('divframeInfo');
 var urlInfo = document.location.href;
 if (urlInfo.indexOf("rang=") != -1){  // Modifier une commande
 	updtInfo = urlInfo.substring(urlInfo.indexOf("rang=") + 5);
@@ -574,11 +573,12 @@ if (typeof HTMLDialogElement !== 'function') {
 		dialogBox.style.visibility="hidden";
 	} 
 
-//initPage();
+initPage();
 menuList.addEventListener("animationend", updateAnimation, true);
 loadMetsXML();
 //alert(performance.navigation.type);
 }
+
 var updateAnimation = function(e){
 if (e.animationName == "slidein"){
 	var menuList = document.getElementById('menuList');
@@ -587,6 +587,7 @@ if (e.animationName == "slidein"){
 }
 //alert(e.animationName);
 }
+
 function loadCommande(){
 var menu1 = document.getElementById('menu1');
 var menu3 = document.getElementById('menu3');

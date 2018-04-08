@@ -40,7 +40,7 @@ if (collCount = loadGalery()){
 
 initPageBar(collCount);
 initPage(1);
-document.body.style.cursor='default';
+
 }
 
 function loadGalery(){
@@ -59,6 +59,7 @@ if (XMLHttpRequest){
         }		
 		//request.send(null);
 		metsCollection = request.responseXML;
+		document.body.style.cursor='default';
 		return metsCollection.childNodes[0].childElementCount;
 	}
 }else
