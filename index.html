@@ -25,9 +25,11 @@
 <style>
 
 .accItem{
-display: contents;
+display: inline-block;
 width: 100%;
-
+clear: both;
+text-align: left;
+border-bottom: solid 10px #ccc;
 }
 
 .lDiv, .rDiv{
@@ -46,10 +48,20 @@ float: right;
 .accImg{
 max-height: 200px;
 max-width: 50%;
+display: block;
 }
 
 .divTxt{
-text-align: center;
+  position: relative;
+
+}
+
+.Ztxt{
+width: 100%;
+padding-left: 10px;
+display: table-cell;
+padding-right: 5px;
+
 }
 
 </style>
@@ -94,20 +106,52 @@ text-align: center;
 <div id="content">
 
 <div id="i1" class="accItem">
+<img class="accImg rDiv" src="photos/A_rep.jpg" alt="Repas préparé"/>
 <div id="i1-dl" class="lDiv divTxt">
-Repas préparés
+<div class="Ztxt">
+<h2>Repas préparés</h2>
+<p>Vous manquez de temps pour cuisiner et planifier vos repas? Simpas vous offre des repas préparés avec un menu différent à chaque semaine. Réalisez des économies en commandant nos forfaits hebdomadaires et profitez de notre service de livraison à Québec et Lévis!</p>
 </div>
-<div id="i1-dr" class="rDiv">
-<img class="accImg" src="photos/A_rep.jpg" alt="Repas préparé"/>
 </div>
 </div>
 
 <div class="accItem">
-<div class="lDiv">
-<img class="accImg" src="photos/A_buf.jpg" alt="Repas préparé"/>
-</div>
+<img class="accImg lDiv" src="photos/A_buf.jpg" alt="Repas préparé"/>
 <div class="rDiv divTxt">
-Buffet
+<div class="Ztxt">
+<h2>Buffet</h2>
+<p>Profitez de nos forfaits copieux à prix avantageux!</p>
+</div>
+</div>
+</div>
+
+<div id="i1" class="accItem">
+<img class="accImg rDiv" src="photos/A_boi.jpg" alt="Repas préparé"/>
+<div id="i1-dl" class="lDiv divTxt">
+<div class="Ztxt">
+<h2>Boîtes à lunch</h2>
+<p>Que ce soit pour une réunion d'affaires ou pour un pique-nique en famille, vous serez ravis par nos menus de boîtes à lunch!</p>
+</div>
+</div>
+</div>
+
+<div class="accItem">
+<img class="accImg lDiv" src="photos/A_coc.jpg" alt="Repas préparé"/>
+<div class="rDiv divTxt">
+<div class="Ztxt">
+<h2>Cocktail dînatoire</h2>
+<p>Dégustation de délicieuses bouchées avec la présence de notre chef dans le confort de votre foyer.</p>
+</div>
+</div>
+</div>
+
+<div id="i1" class="accItem">
+<img class="accImg rDiv" src="photos/A_che.jpg" alt="Repas préparé"/>
+<div id="i1-dl" class="lDiv divTxt">
+<div class="Ztxt">
+<h2>Chef à domicile</h2>
+<p>Offrez-vous le plaisir de bien manger, en bonne compagnie, dans le confort de votre résidence tout en profitant de la soirée au même titre que vos convives!</p>
+</div>
 </div>
 </div>
 
