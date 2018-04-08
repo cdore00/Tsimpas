@@ -36,6 +36,10 @@ if (objQR.offsetHeight >= objQR.childNodes[1].offsetHeight + objQR.childNodes[3]
 }
 
 function initQR(){
+setTimeout(adjustQR, 1000);
+}
+
+function adjustQR(){
 var oQRs = document.getElementsByClassName('objQR');
 for (i = 0; i < oQRs.length; i++) {
 	oQRs[i].style.height = oQRs[i].childNodes[1].offsetHeight + "px";
