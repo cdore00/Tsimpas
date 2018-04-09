@@ -39,44 +39,14 @@ var menuCollection = null;
 var progressBar;
 var commandeEnvoye = false;
 var updtInfo = null;
-var nodejsHost = "https://servg4-cd-serv.1d35.starter-us-east-1.openshiftapps.com/";
+var nodejsHost = "http://127.0.0.1:3000/";
 //"https://servg4-cd-serv.1d35.starter-us-east-1.openshiftapps.com/";
 //"http://192.168.2.10:3000/nod/";
 //"http://cdore.no-ip.biz:3000/nod/";
+//"https://loupop.ddns.net/lou/";
 var windowOref = null;
 var pathComm;
 
-function getCode2(){
-var divframeInfo = document.getElementById('divframeInfo');
-
-var ifElem = document.createElement("iframe");
-ifElem.setAttribute('id', 'frameInfo2');	
-ifElem.setAttribute('src', 'https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets%20https%3A%2F%2Fmail.google.com%2F%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.send&response_type=code&client_id=425059252383-7ir1gosfrn60o59b3uvp8du7ehctlmdn.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fservg4-cd-serv.1d35.starter-us-east-1.openshiftapps.com%2F');
-divframeInfo.appendChild(ifElem);
- 
-  /*
-windowOref.addEventListener('load', function()
-        {
-                sendComm();
-        }, false);
-		
-windowOref.addEventListener('DOMContentLoaded', function()
-        {
-                alert("DOM load");
-        }, false);
-		
-windowOref.addEventListener('readystatechange', function docStateChange(e) {
-    if(e.target.readystate === 'complete') {
-        e.target.removeEventListener('readystatechange', docStateChange);
-        alert("Ready state");
-    }
-});
-*/
-
-	setTimeout(function() {
-	sendComm();
-	}, 2000);
-}
 	
 function loadMetsXML(){
 var divProgress = document.getElementById("divProgress");
@@ -461,36 +431,11 @@ if (checkInfo()){
 	}else{
 		pathComm = nodejsHost + "commPic?" + getInfo(true) + strCom + rangeInfo + mailInfoJ1 + mailInfoJ3 ;
 	}
-	checkToken();
+	checkToken(pathComm);
 	return true;
 }else{
 	return false;
 }
-}
-
-function sendComm(){
-var divframeInfo = document.getElementById('divframeInfo');
-
-if (windowOref != null)
-	windowOref.close();
-	
-	if (CIimgData == null){
-		var ifElem = document.createElement("iframe");
-		ifElem.setAttribute('id', 'frameInfo');	
-		if (CIimgData == null)
-			ifElem.setAttribute('src', pathComm);
-		else
-			ifElem.setAttribute('src', nodejsHost + "getRow?range='Feuille 1'!A1:A1");
-		//ifElem.setAttribute('sandbox', 'allow-same-origin');
-		ifElem.setAttribute('seamless', true);
-		//ifElem.setAttribute('onload','loadedIframe(this);');
-		divframeInfo.appendChild(ifElem);
-		ifElem.style.display = "inherit";
-	}else{
-		setTimeout(function() {
-		SubXHR(pathComm);
-		}, 1000);
-	}
 }
 
 
@@ -505,43 +450,21 @@ var arr = JSON.parse(str);
 
 }
 
-function checkToken(){
+function checkToken(strCom){
 	var xhr = getXMLHttpRequest();
 	
   xhr.onloadend = function() {
     var text = xhr.responseText;
 	var resp =JSON.parse(text)
-	if (!resp.valid){
-		getCode();
-	}else{
-		sendComm();
+	if (resp.valid){
+		var subComm = document.getElementById('subComm');
+		subComm.innerHTML = "Commande reçue";
 	}
   };
-	xhr.open("GET", nodejsHost + "checkToken?");
+	xhr.open("GET", strCom);
 	xhr.send();		
 }
 
-function SubXHR(strComInfo){
-	var xhr = getXMLHttpRequest();
-	var fd = new FormData();
-	fd.append("mailInfo", "cdore00@yahoo.ca");
-	fd.append("queryInfo", strComInfo);
-	fd.append("imgfile", CIimgData);
-	
-  xhr.onloadend = function() {
-    var text = xhr.responseText;
-	var frameInfo = document.getElementById('frameInfo');
-	var subComm = document.getElementById('subComm');
-	frameInfo.style.display="none";
-	subComm.innerHTML = text;
-	subComm.style.webkitAnimationPlayState = "running";
-    //alert('Response from CORS request to : ' + text);
-  };
-	xhr.open("POST", strComInfo);
-	//xhr.setRequestHeader("Access-Control-Allow-Origin", "http://cdore.no-ip.biz");
-	xhr.setRequestHeader("Content-Type", "multipart/form-data");
-	xhr.send(fd);		
-}
 
 // Non utilisé
 function loadedIframe(objIframe){
