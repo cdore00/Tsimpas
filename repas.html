@@ -27,7 +27,7 @@ var iQ = 1, iR = 3;
 
 function hideShowSom(objQR){
 var arrowDiv = objQR.childNodes[iQ].childNodes[1];
-alert("Node Q=" + iQ + " Heigth=" + objQR.childNodes[iQ].offsetHeight);
+//alert("Node Q=" + iQ + " Heigth=" + objQR.childNodes[iQ].offsetHeight);
 if (objQR.offsetHeight >= objQR.childNodes[iQ].offsetHeight + objQR.childNodes[iR].offsetHeight){
 	objQR.style.height = objQR.childNodes[iQ].offsetHeight + "px";
 	arrowDiv.innerHTML = "&#9660;";
@@ -44,10 +44,14 @@ setTimeout(adjustQR, 1000);
 function adjustQR(){
 var oQRs = document.getElementsByClassName('objQR');
 for (i = 0; i < oQRs[0].childNodes.length; i++) {
-	if (oQRs[0].childNodes[i].className == "questRep")
+	if (oQRs[0].childNodes[i].className == "questRep"){
 		iQ = i;
-	if (oQRs[0].childNodes[i].className == "rep")
+		alert("Node Q=" + iQ + " Heigth=" + objQR.childNodes[iQ].offsetHeight);
+	}
+	if (oQRs[0].childNodes[i].className == "rep"){
 		iR = i;
+		alert("Node R=" + iR + " Heigth=" + objQR.childNodes[iR].offsetHeight);
+	}
 }
 
 if (oQRs[0].childNodes[iQ].offsetHeight == 0)
