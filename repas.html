@@ -41,9 +41,13 @@ setTimeout(adjustQR, 1000);
 
 function adjustQR(){
 var oQRs = document.getElementsByClassName('objQR');
-alert(oQRs[0].childNodes[1].offsetHeight)
+if (oQRs[0].childNodes[1].offsetHeight == 0)
+	var h = "2.5em"
 for (i = 0; i < oQRs.length; i++) {
-	oQRs[i].style.height = oQRs[i].childNodes[1].offsetHeight + "px";
+	if (h)
+		oQRs[i].style.height = h;	
+	else
+		oQRs[i].style.height = oQRs[i].childNodes[1].offsetHeight + "px";
 }
 
 }
