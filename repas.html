@@ -23,15 +23,16 @@
 <script type="text/javascript" src="misc/util.js"></script>
 <script type="text/javascript"> 
 <!--
+var iQ = 1, iR = 3;
 
 function hideShowSom(objQR){
-var arrowDiv = objQR.childNodes[1].childNodes[1];
-alert(objQR.childNodes[1].offsetHeight);
-if (objQR.offsetHeight >= objQR.childNodes[1].offsetHeight + objQR.childNodes[3].offsetHeight){
-	objQR.style.height = objQR.childNodes[1].offsetHeight + "px";
+var arrowDiv = objQR.childNodes[iQ].childNodes[1];
+//alert(objQR.childNodes[iQ].offsetHeight);
+if (objQR.offsetHeight >= objQR.childNodes[iQ].offsetHeight + objQR.childNodes[iR].offsetHeight){
+	objQR.style.height = objQR.childNodes[iQ].offsetHeight + "px";
 	arrowDiv.innerHTML = "&#9660;";
 }else{
-	objQR.style.height= objQR.childNodes[3].offsetHeight + objQR.childNodes[1].offsetHeight + "px";
+	objQR.style.height= objQR.childNodes[iR].offsetHeight + objQR.childNodes[iQ].offsetHeight + "px";
 	arrowDiv.innerHTML = "&#9650;";
 }
 }
@@ -42,13 +43,20 @@ setTimeout(adjustQR, 1000);
 
 function adjustQR(){
 var oQRs = document.getElementsByClassName('objQR');
-if (oQRs[0].childNodes[1].offsetHeight == 0)
+for (i = 0; i < oQRs[0].childNodes.length; i++) {
+	if (oQRs[0].childNodes[i].className == "questRep")
+		iQ = i;
+	if (oQRs[0].childNodes[i].className == "rep")
+		iR = i;
+}
+
+if (oQRs[0].childNodes[iQ].offsetHeight == 0)
 	var h = "2.5em"
 for (i = 0; i < oQRs.length; i++) {
 	if (h)
 		oQRs[i].style.height = h;	
 	else
-		oQRs[i].style.height = oQRs[i].childNodes[1].offsetHeight + "px";
+		oQRs[i].style.height = oQRs[i].childNodes[iQ].offsetHeight + "px";
 }
 
 }
@@ -95,6 +103,10 @@ clear:both;
 border-bottom: solid 5px #ccc;
 }
 
+#divmenu{
+display: none;
+}
+
 </style>
 
 
@@ -108,7 +120,7 @@ border-bottom: solid 5px #ccc;
 <div class="divFont" onclick="setFontS(0.2, this)"><div class="divFontSize">A</div><div class="fontLogo">&#8593;</div></div>
 <div class="divFont" onclick="setFontS(-0.2, this)"><div class="divFontSize fontSmall">A</div><div class="fontLogo">&#8595;</div></div>
 </div>
-<h1>Traiteur Simpas</h1>
+<h1> Simpas</h1>
 </div>
 
 <div id="divmenu">
