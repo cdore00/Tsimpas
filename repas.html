@@ -27,7 +27,7 @@ var iQ = 1, iR = 3;
 
 function hideShowSom(objQR){
 var arrowDiv = objQR.childNodes[iQ].childNodes[1];
-//alert(objQR.childNodes[iQ].offsetHeight);
+alert("Node Q=" + iQ + " Heigth=" + objQR.childNodes[iQ].offsetHeight);
 if (objQR.offsetHeight >= objQR.childNodes[iQ].offsetHeight + objQR.childNodes[iR].offsetHeight){
 	objQR.style.height = objQR.childNodes[iQ].offsetHeight + "px";
 	arrowDiv.innerHTML = "&#9660;";
