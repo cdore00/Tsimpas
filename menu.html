@@ -16,7 +16,6 @@
 <link rel="icon" href="misc/favicon.gif" type="image/gif" >
 
 <link rel="stylesheet" type="text/css" href="misc/init.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="misc/Jot.css" />
 <link id="pagestyle" rel="stylesheet" type="text/css" href="misc/photo.css" />
 <link rel="stylesheet" type="text/css" href="misc/takePhoto.css" />
 
@@ -39,11 +38,7 @@ var menuCollection = null;
 var progressBar;
 var commandeEnvoye = false;
 var updtInfo = null;
-var nodejsHost = "https://loupop.ddns.net/simp/";
-//"https://servg4-cd-serv.1d35.starter-us-east-1.openshiftapps.com/";
-//"http://192.168.2.10:3000/nod/";
-//"http://cdore.no-ip.biz:3000/nod/";
-//"https://loupop.ddns.net/lou/";
+
 var windowOref = null;
 var pathComm;
 
@@ -425,12 +420,7 @@ if (checkInfo()){
 	if (updtInfo)
 		rangeInfo = "&range=" + updtInfo;
 
-	if (CIimgData == null){
-		pathComm = nodejsHost + "app.js?" + getInfo(true) + strCom + rangeInfo + mailInfoJ1 + mailInfoJ3 ;
-		//SubGetXHR(strCom);
-	}else{
-		pathComm = nodejsHost + "commPic?" + getInfo(true) + strCom + rangeInfo + mailInfoJ1 + mailInfoJ3 ;
-	}
+	pathComm = HOSTserv + "app.js?" + getInfo(true) + strCom + rangeInfo + mailInfoJ1 + mailInfoJ3 ;
 	checkToken(pathComm);
 	return true;
 }else{
@@ -634,7 +624,9 @@ return true;
 
 <h3>Traiteur Simpas</h3>
 
-<span class="titreMenu">Les livraisons sont effectu&eacute;es en fin d'apr&egrave;s-midi. Faites votre choix avant dimanche 11h &agrave; <a href="mailto:lou@loupopote.com?Subject=Site&nbsp;Lou&nbsp;popote">lou@loupopote.com</a>! Miam!</span>
+
+<span class="titreMenu">Vous avez jusqu'au mercredi (inclusivement) pour commander afin de recevoir votre livraison le dimanche entre 14h et 20h.
+</span>
 
 <div>
 <div id="menu-cart" class="tooltip" onclick="showCart()">

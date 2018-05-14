@@ -1,23 +1,85 @@
 <!--
 
-var rightnav, divmenu, menuCart;
+var HOSTserv = "https://loupop.ddns.net/simp/";
+// "http://127.0.0.1:3000/";		//Portable Windows 10 Local host Node JS v6.10.0
+//	"http://127.0.0.1:8080/";		//Portable Windows 10 Local host Python v3.6.4
+// "http://192.168.2.195:3000/";    //Ubuntu workstation 16.04
+// "http://192.168.2.195:8080/";    //Ubuntu workstation 16.04 docker 1.12.6 Node JS v4.2.3  MongoDB server v3.4.9
+// "http://192.168.2.190:8080/";    //Fedora workstation 26 Mongo 3.2.16 docker 1.13.1 Node JS v4.2.3 MongoDB server v3.4.6
+// "https://loupop.ddns.net/simp/";
+// "https://nodejs-mongo-persistent-cd-serv.1d35.starter-us-east-1.openshiftapps.com/";  // Openshift default docker Node Js -v 6.11.3
+// "https://golf-serv-cd-serv.1d35.starter-us-east-1.openshiftapps.com/";  // Openshift mon docker Node Js -v 4.2.3 et MongoDB server v3.4.9
+// "https://cdore.ddns.net/node/";  // VULTR Ubuntu Server 16.04 docker 1.12.6
+
+var progressBar, rightnav, divmenu, menuCart;
 var transitionsSupported = ('transition' in document.documentElement.style) || ('WebkitTransition' in document.documentElement.style);
 
-window.addEventListener('resize', function () { 
+function is_touch_device() {
+  return 'ontouchstart' in window        // works on most browsers 
+      || navigator.maxTouchPoints;       // works on IE10/11 and Surface
+};
 
-	document.getElementById('pagestyle').setAttribute('href', 'misc/photo.css');
+var isTouchDevice = is_touch_device();
 
-});
-
-function getCode(){
-//
-windowOref = window.open("https://accounts.google.com/o/oauth2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fspreadsheets%20https%3A%2F%2Fmail.google.com%2F%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.send&response_type=code&client_id=425059252383-7ir1gosfrn60o59b3uvp8du7ehctlmdn.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fservg4-cd-serv.1d35.starter-us-east-1.openshiftapps.com%2F",
-  "_blank","width=100,height=100,menubar=no,location=no,resizable=no,scrollbars=no,status=no,alwaysLowered=yes,z-lock=yes");
+function getInfo(path, callback){
 	
-	setTimeout(function() {
-	sendComm();
-	}, 2000);
+var dat = new FormData();
+dat.append('info', path);
+
+var xhr=new XMLHttpRequest();
+  xhr.onloadend = function() {
+    var text = xhr.responseText;
+	if (text == "")
+		affNoRep();
+	else{
+	var data=JSON.parse(text);
+	if (callback)
+		callback(data);
+	}
+  };
+	xhr.onerror = function() {
+		x=5;
+  };
+xhr.open("POST", HOSTserv + path ,true);
+//xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+//xhr.withCredentials = true;
+xhr.send(dat);
+
+	function affNoRep(){
+		var eBod = document.getElementsByTagName('body')[0];
+		var divErr = document.createElement("div");
+		divErr.innerHTML = "Pas de réponse: " + HOSTserv;
+		eBod.insertBefore(divErr, eBod.firstChild);
+	}
 }
+
+function getURLdata(){
+var urlInfo = document.location.href;
+if (urlInfo.indexOf("data=") == -1)
+	return "";
+else
+	return decodeURI(urlInfo.substring(urlInfo.indexOf("data=") + 5));
+}
+
+//var dt =  new Intl.DateTimeFormat("fr-CA", { year: "numeric", month: "2-digit", day: "numeric", hour: "2-digit", minute: "2-digit"});
+function getDateTime(dateTime){
+	var intlDateTime ;
+	if (dateTime)
+		intlDateTime = new Date(dateTime);  //dateTime = Date.now() type
+	else
+		intlDateTime = new Date();
+	
+	intlDateTime.setUTCHours(intlDateTime.getUTCHours());
+	//intlDateTime = dt.format(intlDateTime);
+	intlDateTime = intlDateTime.toLocaleString();
+	intlDateTime = intlDateTime.substring(0, 10);
+	return intlDateTime;
+}
+
+function DelCookie(name) {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
 
 
 function scrollRightNav(){
@@ -28,9 +90,12 @@ else
 	topValue = document.body.scrollTop;
 
 	//rightnav.style.top = topValue + 7 + 'px';
-if (!isMobile)
-	divmenu.style.top = topValue + 'px';
-
+if (!isMobile){
+	if (divmenu)
+		divmenu.style.top = topValue + 'px';
+	if (topmenu)
+		topmenu.style.top = topValue + 'px';
+	}
 if (menuCart)
 	menuCart.style.top = topValue + 'px';
 }
@@ -112,6 +177,7 @@ if (sizeAD && typeof sizeAD == "number"){
 }
 
 function initPage(callBackFunct){
+topmenu = document.getElementById('topmenu');
 divmenu = document.getElementById('divmenu');
 rightnav = document.getElementById('fontAdjust');
 //menuCart = document.getElementById('menu-cart');
