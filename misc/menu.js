@@ -15,7 +15,7 @@ var subMenus = [
 					"href": "./mets.html"
 					},
 					{
-					"caption": "Questions fréquentes",
+					"caption": "Questions fr&eacute;quentes",
 					"href": "./repas.html#foireQ"
 					}
 				]
@@ -28,15 +28,15 @@ var subMenus = [
 					"href": "https://www.traiteursimpas.com/"
 					},
 					{
-					"caption": "Boîte à lunch",
+					"caption": "Bo&icirc;te &agrave; lunch",
 					"href": "https://www.traiteursimpas.com/"
 					},
 					{
-					"caption": "Cocktail dînatoire",
+					"caption": "Cocktail d&icirc;natoire",
 					"href": "https://www.traiteursimpas.com/"
 					},
 					{
-					"caption": "Chef à domicile",
+					"caption": "Chef &agrave; domicile",
 					"href": "https://www.traiteursimpas.com/"
 					}
 				]
@@ -54,7 +54,7 @@ var subMenus = [
 					"href": "news.html"
 					},
 					{
-					"caption": "Repas préparés",
+					"caption": "Repas pr&eacute;par&eacute;s",
 					"href": "repas.html"
 					},
 					{
