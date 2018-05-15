@@ -497,6 +497,7 @@ padding: .3em;
 	transition-timing-function: ease-out;
 	/*background: #AD8700;*/
 	border: 2px solid #ddf !important;
+	color: #ddf !important;
 	}
 
 .selOpt{
