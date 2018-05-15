@@ -386,6 +386,7 @@ text-align: left;
 height:2 em;
 text-align:center;
 padding: 10px;
+clear: both;
 }
 
 #rightnav{position:absolute;font-size:0px;padding-right:10px;right:0px;top:7px;background:transparent;border:0px;cursor:pointer;z-index: 1000;}
@@ -409,9 +410,8 @@ border-left: 1px solid #999;
 -webkit-border-radius: 20px 0 0 0;
 border-radius: 20px 0 0 0;
 overflow:hidden;
-text-align:center;
 margin-bottom: 0.5em;
-
+padding-left: 10px;
 }
 
 @keyframes tourne {
