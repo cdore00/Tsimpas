@@ -191,7 +191,7 @@ margin-left: 1%;
 background: url(blue_cart.png);
 background-repeat: no-repeat;
 background-position: left top;
-/*z-index: 1000;*/
+text-align: center;
 }
 
 #menu-cart:hover{
