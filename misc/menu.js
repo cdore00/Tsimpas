@@ -135,7 +135,7 @@ if (subElem){
 if (subElem){
 		subElem.style.top = parent.offsetHeight + "px" ;
 		subElem.style.left = parent.offsetLeft + "px" ;
-		subElem.style.height = (ht * optHeight) + "em";
+		subElem.style.height = (ht * (optHeight)) + "em";
 		if (subElem.id == "logomenusub")
 			logomenuOpen = true;
 	}

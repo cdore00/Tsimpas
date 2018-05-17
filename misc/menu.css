@@ -90,7 +90,7 @@ display: none;
          		 /* iPhone, Android */
 				 
 #butMenu{
-display: initial;
+display: inherit;
 }
 
 #topmenu {
