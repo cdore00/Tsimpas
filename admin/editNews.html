@@ -37,6 +37,7 @@ var container, container2;
 var editChange = false;
 var cursorPos = null;
 var formEmo;
+var winEmo;
 
 function initEditPage(){
 container = document.getElementById('editor');
@@ -307,7 +308,9 @@ quill.insertText(cursorPos, but);
 function otherEmo(){
 formEmo = document.getElementById('form_emoji');
 cursorPos = quill.getSelection();
-var winEmo = window.open("../emoji.html", "emojW", "width=500, height=500");
+if (winEmo)
+	winEmo.close();
+winEmo = window.open("../emoji.html", "emojW", "width=500, height=500");
 }
 
 function updEmoHist(but){
